@@ -1,1 +1,25 @@
-<p>directors works!</p>
+<div class="container">
+
+    <p *ngFor="let director of directors; let i=index">
+        Director Name: <span>{{director.name}}</span>, 
+        Director Age: <span>{{director.age}}</span>, 
+       <button (click)="onDel(i)" class="danger">Delete</button>
+    </p>
+
+    <button class="btn" *ngIf="!isAdd" (click)="addDirector()">Add director</button>
+    
+    <form [formGroup]="myForm" class="form-control" *ngIf="isAdd" (ngSubmit)="onSubmit()">
+
+        <label for="name">Name:</label>
+        <input type="text" class="form-data" name="name" required formControlName="name">
+        <small *ngIf="!myForm.get('name')?.valid && myForm.get('name')?.touched">Title is required</small><br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" class="form-data" required formControlName="age">
+        <small *ngIf="!myForm.get('age')?.valid && myForm.get('age')?.touched">Year released is required</small><br>
+        
+
+        <button class="btn">Add director</button>
+
+    </form>
+</div>

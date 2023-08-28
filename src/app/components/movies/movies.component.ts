@@ -24,7 +24,7 @@ export class MoviesComponent {
     else{
       this.movies = this.moviesService.getAllMovies();
       }
-     }
+  }
 
 addMovie():void {
   this.isAdd = true;
