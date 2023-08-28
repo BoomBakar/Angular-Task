@@ -7,3 +7,57 @@ div{
 span{
     color:#FAB162;
 }
+
+.btn{
+    background-color:#FAB162;
+    color:white;
+    border-radius:0px;
+    border:none;
+    padding:10px;
+    margin:10px;
+}
+.btn:hover{
+    background-color:white;
+    color:#FAB162;
+    cursor: pointer;
+    border-radius: 20%;
+    opacity:0.8;
+}
+
+small{
+    color:red;
+    font-size: 10px;
+}
+input.ng-invalid.ng-touched{
+    border:2px solid red;
+}
+.form-data{
+    padding:10px;
+    padding-left:30px;
+    margin:10px;
+    border:1px solid #FAB162;
+    border-radius:10px;
+}
+.form-data:hover{
+    border:1px solid #FAB162;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px #FAB162;
+}
+
+.danger{
+    background-color:red;
+    color:white;
+    font-size: 15px;
+    font-weight: bold;
+    padding:5px;
+    border-radius: 10px;
+    border:none;
+
+}
+.danger:hover{
+    background-color:transparent;
+    color:red;
+    cursor: pointer;
+    border-radius: 20%;
+    opacity:0.8;
+}

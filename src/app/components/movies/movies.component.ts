@@ -9,18 +9,41 @@ import { MoviesService } from '../../services/movies.service';
 export class MoviesComponent {
 
   movies: Array<any> = [];
-  private isAdd:boolean = false;
+  isAdd:boolean = false;
+  title: string = '';
+  yearReleased: string = '';
+  director: string = '';
 
   private moviesService= inject(MoviesService);
   constructor() { 
-    this.moviesService.getAllMovies().subscribe((data: any) => {
-      this.movies = data;
-      console.log(this.movies);
+    if(this.moviesService.hasMovies()){
+    
+      this.movies = this.moviesService.getMovies();
+    }
+    
+    else{
+      this.movies = this.moviesService.getAllMovies();
+      }
+     }
 
-    })
-}
 addMovie():void {
   this.isAdd = true;
   }
+  onSubmit():void {
+
+    const movie = {
+      title: this.title,
+      yearReleased: this.yearReleased,
+      director: this.director
+    }
+    console.log(movie);
+    this.moviesService.addMovie(movie);
+    console.log(this.movies);
+  }
+  onDel(index:number):void {
+    this.moviesService.deleteMovie(index);
+  }
+
+  
 
 }
