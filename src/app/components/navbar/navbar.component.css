@@ -1,0 +1,24 @@
+
+.container{
+    display: flex;
+    gap:200px;
+    padding:10px;
+    align-items: center;
+    background-color: #888888;
+    color: #fff;
+    height: 60px;
+    gap:70px;
+    width:70%;
+
+}
+
+.navbar-brand{
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+}
+
+.navbar-brand:hover{
+    color: #B4D0E7;
+    text-decoration: none;
+}
