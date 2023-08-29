@@ -60,7 +60,7 @@
         <input type="text" name="director" class="form-data" #dir="ngModel" required [(ngModel)]="director">
         <small *ngIf="!dir.valid && dir.touched">Director name is required</small><br>
 
-        <button class="btn">Add Movie</button>
+        <button class="btn" [disabled]="!mTitle.valid || !year.valid">Add Movie</button>
 
     </form>
 </div>

@@ -25,7 +25,9 @@ export class MoviesComponent {
       this.movies = this.moviesService.getAllMovies();
       }
   }
-
+getDirectorInfo(director:string):any{
+  return this.moviesService.getDirectorInfo(director);
+}
 addMovie():void {
   this.isAdd = true;
   }
@@ -34,7 +36,7 @@ addMovie():void {
     const movie = {
       title: this.title,
       yearReleased: this.yearReleased,
-      director: this.director
+      director: this.getDirectorInfo(this.director)
     }
     console.log(movie);
     this.moviesService.addMovie(movie);

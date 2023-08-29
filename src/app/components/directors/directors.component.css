@@ -23,6 +23,16 @@ span{
     border-radius: 20%;
     opacity:0.8;
 }
+.btn:disabled{
+    background-color:#FAB162;
+    color:white;
+    border-radius:0px;
+    border:none;
+    padding:10px;
+    margin:10px;
+    opacity:0.5;
+    cursor:not-allowed;
+}
 
 small{
     color:red;
@@ -60,4 +70,9 @@ input.ng-invalid.ng-touched{
     cursor: pointer;
     border-radius: 20%;
     opacity:0.8;
+}
+
+img{
+    height:200px;
+    width:200px;
 }

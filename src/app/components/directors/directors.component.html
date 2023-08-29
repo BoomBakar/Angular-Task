@@ -1,8 +1,10 @@
 <div class="container">
 
     <p *ngFor="let director of directors; let i=index">
+        <img [src]="director.pic" [alt]="director.name"> <br>
         Director Name: <span>{{director.name}}</span>, 
-        Director Age: <span>{{director.age}}</span>, 
+        Director Age: <span>{{director.age}}</span>
+        
        <button (click)="onDel(i)" class="danger">Delete</button>
     </p>
 
@@ -18,8 +20,10 @@
         <input type="number" name="age" class="form-data" required formControlName="age">
         <small *ngIf="!myForm.get('age')?.valid && myForm.get('age')?.touched">Year released is required</small><br>
         
-
-        <button class="btn">Add director</button>
+        <label for="pic">Picture:</label>
+        <input type="file" name="pic" class="form-data" formControlName="pic">
+       
+        <button class="btn" [disabled]="!myForm.valid">Add director</button>
 
     </form>
 </div>

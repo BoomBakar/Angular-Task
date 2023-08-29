@@ -17,18 +17,25 @@ export class MoviesService {
     return this.movies;
   }
   getAllMovies() {
-    this.http.get<any>(this.url).subscribe((data: any) => {
-     
+   
+    this.http.get<any>(this.url).subscribe((data: any) => {     
       this.unfilteredMovies = data;
+      console.log(this.unfilteredMovies);
     });
+    
     this.unfilteredMovies.forEach(element => {
+      let name= this.getDirectorInfo(element.director);
+      console.log("NAME SHOULD BE" + name);
+      
       const movie = {
         title: element.title,
         yearReleased: element.yearReleased,
-        director: element.director
+        director: this.getDirectorInfo(element.director)
       }
+      console.log(movie.director)
       this.movies.push(movie);
     });
+    console.log(this.movies);
     return this.movies;
   }
   hasMovies(){
@@ -44,5 +51,16 @@ export class MoviesService {
   }
   deleteMovie(index:number) {
     this.movies.splice(index,1);
+  }
+  getDirectorInfo(director:string):any{
+    console.log(director);
+    const url = `http://localhost:2000/api/directors/${director}`;
+    let name:string = '';
+    this.http.get<any>(url).subscribe((data: any) => {
+      name = data.name;
+      console.log("NAME IS " + name);
+      return name;   
+    }   
+    );
   }
 }

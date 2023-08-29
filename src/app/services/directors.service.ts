@@ -24,7 +24,8 @@ export class DirectorService {
     this.unfiltereddirectors.forEach(element => {
       const director = {
         name: element.name,
-        age: element.age
+        age: element.age,
+        pic: element.photoPath
       }
       this.directors.push(director);
     });

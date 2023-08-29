@@ -6,3 +6,14 @@ html,body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:white;
 }
+
+
+::-moz-selection { /* Code for Firefox */
+  color: #2c2c2c;
+  background: white;
+}
+
+::selection {
+  color: #2c2c2c;
+  background: white;
+}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DirectorService } from 'src/app/services/directors.service';
 
+
 @Component({
   selector: 'app-directors',
   templateUrl: './directors.component.html',
@@ -19,6 +20,7 @@ export class DirectorsComponent {
     
     else{
       this.directors = this.directorService.getAlldirectors();
+      console.log(this.directors);
       }
   }
 
@@ -34,6 +36,7 @@ export class DirectorsComponent {
     this.myForm = new FormGroup({
       name: new FormControl('', Validators.required),
       age: new FormControl('', Validators.required),
+      pic: new FormControl('')
     });
   }
 
@@ -41,9 +44,13 @@ export class DirectorsComponent {
     this.isAdd = true;
   }
   onSubmit():void {
+    //get the pic and save it to assets folder
+    const img = this.myForm.value.pic;
+    console.log(img);
     const director = {
       name: this.myForm.value.name,
       age: this.myForm.value.age,
+      pic:this.myForm.value.pic
     }
     this.directors.push(director);
     this.myForm.reset();
