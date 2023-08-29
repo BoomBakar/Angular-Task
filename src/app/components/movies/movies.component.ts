@@ -13,20 +13,36 @@ export class MoviesComponent {
   title: string = '';
   yearReleased: string = '';
   director: string = '';
+  myPromise:any;
 
   private moviesService= inject(MoviesService);
   constructor() { 
     if(this.moviesService.hasMovies()){
-    
-      this.movies = this.moviesService.getMovies();
+        this.moviesService.getMovies();
     }
     
     else{
-      this.movies = this.moviesService.getAllMovies();
-      }
+      this.getMov();
+      this.myPromise.then((data:any)=>{
+        console.log(data);
+        this.movies = data;
+      }).catch((err:any)=>{
+        console.log(err);
+      });
+    }
   }
-getDirectorInfo(director:string):any{
-  return this.moviesService.getDirectorInfo(director);
+// getDirectorInfo(director:string):any{
+//   return this.moviesService.getDirectorInfo(director);
+// }
+
+getMov(){
+  this.myPromise= new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      this.movies =this.moviesService.getAllMovies()
+      resolve(this.movies);
+      reject('error');
+    },3000);
+  });
 }
 addMovie():void {
   this.isAdd = true;
@@ -36,7 +52,7 @@ addMovie():void {
     const movie = {
       title: this.title,
       yearReleased: this.yearReleased,
-      director: this.getDirectorInfo(this.director)
+      director: this.director
     }
     console.log(movie);
     this.moviesService.addMovie(movie);

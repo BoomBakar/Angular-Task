@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { observable } from 'rxjs';
+import { delay, observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +17,13 @@ export class MoviesService {
     return this.movies;
   }
   getAllMovies() {
-   
-    this.http.get<any>(this.url).subscribe((data: any) => {     
+    
+    this.http.get(this.url).subscribe((data: any) => {     
       this.unfilteredMovies = data;
       console.log(this.unfilteredMovies);
     });
     
     this.unfilteredMovies.forEach(element => {
-      let name= this.getDirectorInfo(element.director);
-      console.log("NAME SHOULD BE" + name);
-      
       const movie = {
         title: element.title,
         yearReleased: element.yearReleased,
@@ -35,7 +32,6 @@ export class MoviesService {
       console.log(movie.director)
       this.movies.push(movie);
     });
-    console.log(this.movies);
     return this.movies;
   }
   hasMovies(){
@@ -58,7 +54,6 @@ export class MoviesService {
     let name:string = '';
     this.http.get<any>(url).subscribe((data: any) => {
       name = data.name;
-      console.log("NAME IS " + name);
       return name;   
     }   
     );

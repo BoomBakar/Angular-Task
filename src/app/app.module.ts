@@ -10,6 +10,8 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { DirectorsComponent } from './components/directors/directors.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrComponent } from './components/err/err.component';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     FooterComponent,
     MoviesComponent,
-    DirectorsComponent
+    DirectorsComponent,
+    ErrComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,
