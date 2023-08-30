@@ -46,7 +46,7 @@
 
     <button class="btn" *ngIf="!isAdd" (click)="addMovie()">Add Movie</button>
     
-    <form class="form-control" *ngIf="isAdd" (ngSubmit)="onSubmit()">
+    <form class="form-control" #myForm="ngForm" *ngIf="isAdd" (ngSubmit)="onSubmit(myForm)">
 
         <label for="title">Title:</label>
         <input type="text" class="form-data" name="title" required #mTitle="ngModel" [(ngModel)]="title">

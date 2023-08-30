@@ -3,4 +3,9 @@
         <a routerLink="/movies" class="navbar-brand"> Movies </a>
         <a routerLink="/directors" class="navbar-brand"> Directors</a>
 
+        <div class="navbar-brand toggle">Change to {{theme}} mode
+
+          <ui-switch color="#FAB162" [(ngModel)]="isLight" (change)="toggleTheme()"></ui-switch>
+        </div>
+        
  </nav>

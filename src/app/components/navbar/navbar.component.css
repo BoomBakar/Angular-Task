@@ -8,7 +8,7 @@
     color: #fff;
     height: 45px;
     gap:70px;
-    width:60%;
+    width:90%;
 
 }
 
@@ -21,4 +21,9 @@
 .navbar-brand:hover{
     color: #B4D0E7;
     text-decoration: none;
+}
+
+.toggle{
+    margin-left: auto;
+    font-size: 20px;
 }

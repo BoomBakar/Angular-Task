@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
@@ -9,59 +9,43 @@ import { MoviesService } from '../../services/movies.service';
 export class MoviesComponent {
 
   movies: Array<any> = [];
-  isAdd:boolean = false;
+  isAdd: boolean = false;
   title: string = '';
   yearReleased: string = '';
   director: string = '';
-  myPromise:any;
+  //@ViewChild('myForm', {static: true}) myForm: any;
+  private moviesService = inject(MoviesService);
 
-  private moviesService= inject(MoviesService);
-  constructor() { 
-    if(this.moviesService.hasMovies()){
-        this.moviesService.getMovies();
+  constructor() {
+    if (this.moviesService.hasMovies()) {
+
+      this.movies = this.moviesService.getMovies();
     }
-    
-    else{
-      this.getMov();
-      this.myPromise.then((data:any)=>{
-        console.log(data);
-        this.movies = data;
-      }).catch((err:any)=>{
-        console.log(err);
-      });
+
+    else {
+      this.movies = this.moviesService.getAllMovies();
     }
   }
-// getDirectorInfo(director:string):any{
-//   return this.moviesService.getDirectorInfo(director);
-// }
-
-getMov(){
-  this.myPromise= new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-      this.movies =this.moviesService.getAllMovies()
-      resolve(this.movies);
-      reject('error');
-    },3000);
-  });
-}
-addMovie():void {
-  this.isAdd = true;
+  // getDirectorInfo(director:string):any{
+  //   return this.moviesService.getDirectorInfo(director);
+  // }
+  addMovie(): void {
+    this.isAdd = true;
   }
-  onSubmit():void {
+  onSubmit(myForm: any): void {
 
     const movie = {
       title: this.title,
       yearReleased: this.yearReleased,
       director: this.director
     }
-    console.log(movie);
+    myForm.reset();
     this.moviesService.addMovie(movie);
-    console.log(this.movies);
   }
-  onDel(index:number):void {
+  onDel(index: number): void {
     this.moviesService.deleteMovie(index);
   }
 
-  
+
 
 }

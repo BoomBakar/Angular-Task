@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrComponent } from './components/err/err.component';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AccessDeniedComponent } from './components/access-denied/access-denied.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
