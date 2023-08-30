@@ -10,6 +10,7 @@ export class MoviesService {
 
   private movies: Array<any> = [];
   private unfilteredMovies: Array<any> = [];
+  private movieObs:any;
   constructor(
     private http: HttpClient
   ) { }
@@ -17,6 +18,7 @@ export class MoviesService {
     return this.movies;
   }
   getAllMovies() {
+    
     
     this.http.get(this.url).subscribe((data: any) => {     
       this.unfilteredMovies = data;

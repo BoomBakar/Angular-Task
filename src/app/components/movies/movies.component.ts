@@ -13,6 +13,8 @@ export class MoviesComponent {
   title: string = '';
   yearReleased: string = '';
   director: string = '';
+  //movieOb:any;
+  
   //@ViewChild('myForm', {static: true}) myForm: any;
   private moviesService = inject(MoviesService);
 

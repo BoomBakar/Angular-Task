@@ -1,40 +1,4 @@
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-        <h1>Movie List</h1>
-        <div class="row">
-            <div class="col-md-12">
-            <div class="form-group">
-                <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search Movie">
-            </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>Movie Name</th>
-                    <th>Movie Year</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let movie of movies | filter: searchText">
-                    <td>{{movie.name}}</td>
-                    <td>{{movie.year}}</td>
-                    <td>
-                    <button class="btn btn-primary" (click)="editMovie(movie)">Edit</button>
-                    <button class="btn btn-danger" (click)="deleteMovie(movie)">Delete</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            </div>
-        </div>
-        <button class="btn btn-primary" (click)="addMovie()">Add Movie</button>
-        </div>
-    </div>
-</div> -->
+
 <div class="container">
 
     <p *ngFor="let movie of movies;let i=index">
