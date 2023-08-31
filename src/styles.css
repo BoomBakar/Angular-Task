@@ -17,11 +17,11 @@ body{
 
 
 ::-moz-selection { /* Code for Firefox */
-  color: #2c2c2c;
-  background: white;
+  color: var(--primary-bg-clr);
+  background: var(--primary-txt-clr);
 }
 
 ::selection {
-  color: #2c2c2c;
-  background: white;
+  color: var(--primary-bg-clr);
+  background: var(--primary-txt-clr);
 }
